@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback, useEffect } from "react";
-import { Heart, User, ShoppingBag, LayoutGrid } from "lucide-react";
+import { Heart, User, ShoppingBag, LayoutGrid, ArrowLeft } from "lucide-react";
 
 // ─── ASSETS & DATA ─────────────────────────────────────────────────────────────
 
@@ -414,17 +414,30 @@ export const Card = (): JSX.Element => {
       ═══════════════════════════════════════════════════════════════════════ */}
       <main className="max-w-[1520px] mx-auto px-5 lg:px-20 pb-[120px] lg:pb-0">
 
-        {/* ── BREADCRUMB ── */}
-        <div className="flex items-center gap-[7px] lg:gap-2.5 py-[12px] lg:py-[18px] overflow-x-auto whitespace-nowrap [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: "none" }}>
+        {/* ── BREADCRUMB (Desktop) ── */}
+        <div className="hidden lg:flex items-center gap-2.5 py-[18px]">
           {["Главная", "Каталог", "Новинки"].map(c => (
-            <div key={c} className="flex items-center gap-[7px] lg:gap-2.5 flex-shrink-0">
+            <div key={c} className="flex items-center gap-2.5 flex-shrink-0">
               <button className="border-b border-[#bababa] pb-px cursor-pointer hover:opacity-60 transition-opacity">
-                <span className="[font-family:'Cera_Pro-Regular',Helvetica] text-[#bababa] text-[10px] lg:text-xs">{c}</span>
+                <span className="[font-family:'Cera_Pro-Regular',Helvetica] text-[#bababa] text-xs">{c}</span>
               </button>
               <div className="w-[3px] h-[3px] bg-[#bababa] rounded-full" />
             </div>
           ))}
-          <span className="[font-family:'Cera_Pro-Regular',Helvetica] text-[#bababa] text-[10px] lg:text-xs flex-shrink-0 truncate">Лимфодренажный крем для лица</span>
+          <span className="[font-family:'Cera_Pro-Regular',Helvetica] text-[#bababa] text-xs flex-shrink-0 truncate">Лимфодренажный крем для лица</span>
+        </div>
+
+        {/* ── MOBILE TOP BAR (Back & Stock) ── */}
+        <div className="lg:hidden flex items-center justify-between py-2.5">
+          <button className="flex items-center gap-1.5 transition-opacity hover:opacity-70 active:scale-95">
+            <ArrowLeft className="w-5 h-5 text-[#3c3c50]" strokeWidth={1.5} />
+            <span className="[font-family:'Cera_Pro-Medium',Helvetica] text-[#3c3c50] text-[15px] font-medium leading-none mt-0.5">Новинки</span>
+          </button>
+          
+          <div className="flex items-center gap-[5px]">
+            <img className="w-[14px] h-[14px]" alt="" src="/figmaAssets/bold---essentional--ui---check-circle.svg" />
+            <span className="[font-family:'Cera_Pro-Regular',Helvetica] text-[#78b72a] text-[13px] leading-none mb-px">В наличии</span>
+          </div>
         </div>
 
         {/* ══════════════════════════════════════════════════════════════════
@@ -472,18 +485,17 @@ export const Card = (): JSX.Element => {
             </div>
 
             {/* Mobile gallery: horizontal swipe */}
-            <div className="lg:hidden relative">
+            <div className="lg:hidden relative -mx-5 bg-white">
               <div ref={galleryRef} onScroll={onGalleryScroll}
                 className="flex overflow-x-auto snap-x snap-mandatory"
-                style={{ scrollbarWidth: "none", gap: "12px" }}>
+                style={{ scrollbarWidth: "none" }}>
                 {variant.thumbnails.map((t, i) => (
                   <div key={`${activeVol}-${i}`} data-slide="1"
-                    className="flex-shrink-0 snap-start bg-[#f5f5f8] rounded-[12px] overflow-hidden flex items-center justify-center p-4"
-                    style={{ width: "calc(100vw - 56px)", height: "300px" }}>
-                    <img src={t} alt={`Фото ${i + 1}`} className="w-full h-full object-contain" />
+                    className="flex-shrink-0 snap-start w-full flex items-center justify-center pointer-events-none"
+                    style={{ height: "320px" }}>
+                    <img src={t} alt={`Фото ${i + 1}`} className="w-[85%] h-full object-contain mix-blend-multiply" />
                   </div>
                 ))}
-                <div className="flex-shrink-0 w-2" />
               </div>
               {/* Dot indicators */}
               <div className="flex items-center justify-center gap-1.5 mt-3">
@@ -522,11 +534,11 @@ export const Card = (): JSX.Element => {
 
             {/* Name */}
             <div className="flex flex-col gap-[3px] order-1 lg:order-none">
-              <div className="inline-flex items-center gap-[5px]">
+              <div className="hidden lg:inline-flex items-center gap-[5px]">
                 <img className="w-3.5 h-3.5" alt="" src="/figmaAssets/bold---essentional--ui---check-circle.svg" />
                 <span className="[font-family:'Cera_Pro-Regular',Helvetica] text-[#78b72a] text-sm leading-[16.1px]">В наличии</span>
               </div>
-              <h1 className="[font-family:'Cera_Pro-Regular',Helvetica] font-normal text-[#3c3c50] text-[22px] lg:text-[25px] tracking-[-1.1px] lg:tracking-[-1.25px] leading-[1.15]">
+              <h1 className="[font-family:'Cera_Pro-Regular',Helvetica] font-normal text-[#3c3c50] text-[22px] lg:text-[25px] tracking-[-1.1px] lg:tracking-[-1.25px] leading-[1.15] mt-1 lg:mt-0">
                 {PRODUCT.name}, {activeVol} мл
               </h1>
               <span className="[font-family:'Cera_Pro-Regular',Helvetica] text-[#bababa] text-sm leading-[16.1px]">Арт. {PRODUCT.id}</span>
