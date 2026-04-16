@@ -1,35 +1,25 @@
 {
   "version": 2,
-  "builds": [
+  "rewrites": [
     {
-      "src": "dist/index.cjs",
-      "use": "@vercel/node"
+      "source": "/assets/(.*)",
+      "destination": "/dist/public/assets/$1"
     },
     {
-      "src": "dist/public/**",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/assets/(.*)",
-      "dest": "dist/public/assets/$1"
+      "source": "/figmaAssets/(.*)",
+      "destination": "/dist/public/figmaAssets/$1"
     },
     {
-      "src": "/figmaAssets/(.*)",
-      "dest": "dist/public/figmaAssets/$1"
+      "source": "/favicon.png",
+      "destination": "/dist/public/favicon.png"
     },
     {
-      "src": "/favicon.png",
-      "dest": "dist/public/favicon.png"
+      "source": "/api/(.*)",
+      "destination": "/api/index.js"
     },
     {
-      "src": "/api/(.*)",
-      "dest": "dist/index.cjs"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "dist/index.cjs"
+      "source": "/(.*)",
+      "destination": "/api/index.js"
     }
   ]
 }
