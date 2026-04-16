@@ -1,18 +1,11 @@
 {
   "version": 2,
+  "functions": {
+    "api/index.js": {
+      "includeFiles": "dist/**"
+    }
+  },
   "rewrites": [
-    {
-      "source": "/assets/(.*)",
-      "destination": "/dist/public/assets/$1"
-    },
-    {
-      "source": "/figmaAssets/(.*)",
-      "destination": "/dist/public/figmaAssets/$1"
-    },
-    {
-      "source": "/favicon.png",
-      "destination": "/dist/public/favicon.png"
-    },
     {
       "source": "/api/(.*)",
       "destination": "/api/index.js"
