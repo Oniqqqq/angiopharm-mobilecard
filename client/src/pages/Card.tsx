@@ -517,7 +517,7 @@ export const Card = (): JSX.Element => {
             </div>
 
             {/* Rating */}
-            <button className="order-8 lg:order-none self-start inline-flex items-center gap-[7px] px-[9px] py-1 bg-[#f7f7f7] rounded-[5px] cursor-pointer transition-all hover:bg-[#ebebeb]">
+            <button className="order-3 lg:order-none self-start inline-flex items-center gap-[7px] px-[9px] py-1 bg-[#f7f7f7] rounded-[5px] cursor-pointer transition-all hover:bg-[#ebebeb]">
               <div className="inline-flex items-center gap-[3px]">
                 <img className="w-3 h-3" alt="★" src="/figmaAssets/vuesax-bold-ranking.svg" />
                 <span className="[font-family:'Cera_Pro-Regular',Helvetica] text-[#3c3c50] text-sm">{PRODUCT.rating}</span>
@@ -556,7 +556,7 @@ export const Card = (): JSX.Element => {
             </div>
 
             {/* Volume selector */}
-            <div className="flex flex-col gap-[9px] order-3 lg:order-none">
+            <div className="flex flex-col gap-[9px] order-4 lg:order-none">
               <span className="[font-family:'Cera_Pro-Regular',Helvetica] text-[#3c3c50] text-sm leading-[16.1px]">Объём, мл</span>
               <div className="flex items-center gap-[5px]">
                 {[7, 30, 50].map(v => (
@@ -569,7 +569,7 @@ export const Card = (): JSX.Element => {
             </div>
 
             {/* Mobile: tab scroll anchors */}
-            <div className="lg:hidden flex gap-2 overflow-x-auto pb-0.5 order-4" style={{ scrollbarWidth: "none" }}>
+            <div className="lg:hidden flex gap-2 overflow-x-auto pb-0.5 order-6" style={{ scrollbarWidth: "none" }}>
               {TABS.map(t => (
                 <button key={t} onClick={() => scrollToSection(t)}
                   className={`flex-shrink-0 h-[28px] px-3 rounded-[20px] text-[10px] whitespace-nowrap transition-all ${activeTab === t ? "[font-family:'Cera_Pro-Medium',Helvetica] font-medium text-white bg-[#3c3c50]" : "[font-family:'Cera_Pro-Regular',Helvetica] text-[#3c3c50] bg-[#f0f0f6] hover:bg-[#e8e8f2]"}`}>
@@ -579,12 +579,12 @@ export const Card = (): JSX.Element => {
             </div>
 
             {/* Short description */}
-            <p className="[font-family:'Cera_Pro-Regular',Helvetica] text-[#3c3c50] text-sm leading-[20px] order-6 lg:order-none">
+            <p className="[font-family:'Cera_Pro-Regular',Helvetica] text-[#3c3c50] text-sm leading-[20px] order-7 lg:order-none">
               {variant.shortDesc}
             </p>
 
             {/* Specs */}
-            <div className="flex flex-col gap-[14px] order-7 lg:order-none mt-4">
+            <div className="flex flex-col gap-[14px] order-8 lg:order-none mt-4">
               {PRODUCT.specs.map(spec => (
                 <div key={spec.label} className="flex w-full items-start">
                   <div className="[font-family:'Cera_Pro-Regular',Helvetica] text-[#bababa] text-sm leading-[20px] whitespace-nowrap tracking-[0.2px]">
