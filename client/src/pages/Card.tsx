@@ -427,17 +427,12 @@ export const Card = (): JSX.Element => {
           <span className="[font-family:'Cera_Pro-Regular',Helvetica] text-[#bababa] text-xs flex-shrink-0 truncate">Лимфодренажный крем для лица</span>
         </div>
 
-        {/* ── MOBILE TOP BAR (Back & Stock) ── */}
-        <div className="lg:hidden flex items-center justify-between py-2.5">
+        {/* ── MOBILE TOP BAR (Back) ── */}
+        <div className="lg:hidden flex items-center pt-2 pb-1.5">
           <button className="flex items-center gap-1.5 transition-opacity hover:opacity-70 active:scale-95">
             <ArrowLeft className="w-5 h-5 text-[#3c3c50]" strokeWidth={1.5} />
             <span className="[font-family:'Cera_Pro-Medium',Helvetica] text-[#3c3c50] text-[15px] font-medium leading-none mt-0.5">Новинки</span>
           </button>
-          
-          <div className="flex items-center gap-[5px]">
-            <img className="w-[14px] h-[14px]" alt="" src="/figmaAssets/bold---essentional--ui---check-circle.svg" />
-            <span className="[font-family:'Cera_Pro-Regular',Helvetica] text-[#78b72a] text-[13px] leading-none mb-px">В наличии</span>
-          </div>
         </div>
 
         {/* ══════════════════════════════════════════════════════════════════
@@ -451,7 +446,7 @@ export const Card = (): JSX.Element => {
           {/* ── GALLERY ── */}
           <div>
             {/* Mobile: badges above gallery */}
-            <div className="flex items-center gap-[5px] flex-wrap mb-3 lg:hidden">
+            <div className="flex items-center gap-[5px] flex-wrap mb-1.5 lg:hidden">
               {PRODUCT.badges.map(b => (
                 <div key={b.label} style={{ backgroundColor: b.color }}
                   className="inline-flex items-center justify-center gap-[3px] px-[9px] py-[5px] rounded-[5px]">
@@ -508,7 +503,7 @@ export const Card = (): JSX.Element => {
           </div>
 
           {/* ── PRODUCT DETAILS ── */}
-          <div className="flex flex-col gap-[18px] lg:gap-[22px] mt-4 lg:mt-0 lg:max-w-[531px]">
+          <div className="flex flex-col gap-[14px] lg:gap-[22px] mt-3 lg:mt-0 lg:max-w-[531px]">
 
             {/* Badges (desktop) */}
             <div className="hidden lg:flex items-center gap-[5px] flex-wrap order-0 lg:order-none">
@@ -534,7 +529,7 @@ export const Card = (): JSX.Element => {
 
             {/* Name */}
             <div className="flex flex-col gap-[3px] order-1 lg:order-none">
-              <div className="hidden lg:inline-flex items-center gap-[5px]">
+              <div className="inline-flex items-center gap-[5px]">
                 <img className="w-3.5 h-3.5" alt="" src="/figmaAssets/bold---essentional--ui---check-circle.svg" />
                 <span className="[font-family:'Cera_Pro-Regular',Helvetica] text-[#78b72a] text-sm leading-[16.1px]">В наличии</span>
               </div>
