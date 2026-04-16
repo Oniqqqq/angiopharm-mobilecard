@@ -1,4 +1,5 @@
 import { useState, useRef, useCallback, useEffect } from "react";
+import { Heart, User, ShoppingBag, LayoutGrid } from "lucide-react";
 
 // ─── ASSETS & DATA ─────────────────────────────────────────────────────────────
 
@@ -221,31 +222,27 @@ export const Card = (): JSX.Element => {
             onClick={() => setWishlisted(!wishlisted)}
             className={`w-[44px] h-[44px] flex items-center justify-center rounded-[10px] border transition-all active:scale-[0.95] ${wishlisted ? "border-[#e40646]/30 bg-[#fff5f7]" : "border-[#e0e0ec] bg-[#f8f8fc]"}`}
           >
-            <svg width="18" height="16" viewBox="0 0 18 16" fill="none">
-              <path d="M9 14.5C9 14.5 1.5 9.5 1.5 4.75C1.5 3.093 2.836 1.75 4.5 1.75C5.986 1.75 7.244 2.731 7.7 4.063H10.3C10.756 2.731 12.015 1.75 13.5 1.75C15.164 1.75 16.5 3.093 16.5 4.75C16.5 9.5 9 14.5 9 14.5Z"
-                stroke={wishlisted ? "#e40646" : "#3c3c50"} fill={wishlisted ? "#e40646" : "none"}
-                strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <Heart className={`w-[22px] h-[22px] transition-colors ${wishlisted ? "fill-[#e40646] text-[#e40646]" : "text-[#3c3c50]"}`} strokeWidth={1.5} />
           </button>
         </div>
         {/* Bottom nav */}
-        <div className="flex items-center justify-around px-2 pb-1">
+        <div className="flex justify-between px-[15px] pt-1 pb-0">
           {[
-            { icon: "bold---settings--fine-tuning---widget-3.svg", label: "Каталог" },
-            { icon: "shopping-bag-4.svg", label: "Корзина", badge: 20 },
-            { icon: "wishlist.svg", label: "Избранное" },
-            { icon: "frame-2087324801.svg", label: "ЛК" },
+            { Icon: LayoutGrid, label: "Каталог" },
+            { Icon: ShoppingBag, label: "Корзина", badge: 20 },
+            { Icon: Heart, label: "Избранное" },
+            { Icon: User, label: "Профиль" },
           ].map(item => (
-            <button key={item.label} className="relative flex flex-col items-center gap-0.5 px-2 py-1.5 group">
-              <div className="relative">
-                <img className="w-5 h-5 opacity-40 group-hover:opacity-70 transition-opacity" alt={item.label} src={`/figmaAssets/${item.icon}`} />
+            <button key={item.label} className="flex flex-col items-center gap-1 group w-[64px]">
+              <div className="relative flex items-center justify-center w-6 h-6">
+                <item.Icon className="w-5 h-5 text-[#3c3c50] opacity-55 group-hover:opacity-80 transition-opacity" strokeWidth={1.5} />
                 {item.badge && (
-                  <div className="absolute -top-1.5 -right-1.5 w-3.5 h-3.5 bg-[#3c3c50] rounded-full flex items-center justify-center">
+                  <div className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-[#3c3c50] rounded-full flex items-center justify-center">
                     <span className="text-white text-[7px] font-medium leading-none [font-family:'Cera_Pro-Medium',Helvetica]">{item.badge}</span>
                   </div>
                 )}
               </div>
-              <span className="text-[9px] text-[#bababa] [font-family:'Cera_Pro-Regular',Helvetica] whitespace-nowrap">{item.label}</span>
+              <span className="text-[10px] text-[#808080] [font-family:'Cera_Pro-Regular',Helvetica] whitespace-nowrap leading-none mb-1">{item.label}</span>
             </button>
           ))}
         </div>
@@ -352,7 +349,7 @@ export const Card = (): JSX.Element => {
 
             {/* Wishlist */}
             <button className="w-6 h-6 flex items-center justify-center transition-all hover:opacity-60 active:scale-90 flex-shrink-0" onClick={() => setWishlisted(!wishlisted)}>
-              <img className="w-6 h-6" alt="Wishlist" src="/figmaAssets/wishlist.svg" />
+              <Heart className={`w-6 h-6 transition-colors ${wishlisted ? "fill-[#e40646] text-[#e40646]" : "text-[#3c3c50]"}`} strokeWidth={1.5} />
             </button>
 
             {/* Cart with badge */}
@@ -415,19 +412,19 @@ export const Card = (): JSX.Element => {
           — Desktop: max-w-[1520px] px-20
           — Mobile: px-4, pb for bottom nav
       ═══════════════════════════════════════════════════════════════════════ */}
-      <main className="max-w-[1520px] mx-auto px-5 lg:px-20 pb-[160px] lg:pb-0">
+      <main className="max-w-[1520px] mx-auto px-5 lg:px-20 pb-[120px] lg:pb-0">
 
-        {/* ── BREADCRUMB (desktop only) ── */}
-        <div className="hidden lg:flex items-center gap-2.5 py-[18px]">
+        {/* ── BREADCRUMB ── */}
+        <div className="flex items-center gap-[7px] lg:gap-2.5 py-[12px] lg:py-[18px] overflow-x-auto whitespace-nowrap [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: "none" }}>
           {["Главная", "Каталог", "Новинки"].map(c => (
-            <div key={c} className="flex items-center gap-2.5">
+            <div key={c} className="flex items-center gap-[7px] lg:gap-2.5 flex-shrink-0">
               <button className="border-b border-[#bababa] pb-px cursor-pointer hover:opacity-60 transition-opacity">
-                <span className="[font-family:'Cera_Pro-Regular',Helvetica] text-[#bababa] text-xs">{c}</span>
+                <span className="[font-family:'Cera_Pro-Regular',Helvetica] text-[#bababa] text-[10px] lg:text-xs">{c}</span>
               </button>
               <div className="w-[3px] h-[3px] bg-[#bababa] rounded-full" />
             </div>
           ))}
-          <span className="[font-family:'Cera_Pro-Regular',Helvetica] text-[#bababa] text-xs">Лимфодренажный крем для лица</span>
+          <span className="[font-family:'Cera_Pro-Regular',Helvetica] text-[#bababa] text-[10px] lg:text-xs flex-shrink-0 truncate">Лимфодренажный крем для лица</span>
         </div>
 
         {/* ══════════════════════════════════════════════════════════════════
@@ -481,8 +478,8 @@ export const Card = (): JSX.Element => {
                 style={{ scrollbarWidth: "none", gap: "12px" }}>
                 {variant.thumbnails.map((t, i) => (
                   <div key={`${activeVol}-${i}`} data-slide="1"
-                    className="flex-shrink-0 snap-start bg-[#f5f5f8] rounded-[12px] overflow-hidden"
-                    style={{ width: "calc(100vw - 56px)", aspectRatio: "1/1", maxHeight: 360 }}>
+                    className="flex-shrink-0 snap-start bg-[#f5f5f8] rounded-[12px] overflow-hidden flex items-center justify-center p-4"
+                    style={{ width: "calc(100vw - 56px)", height: "300px" }}>
                     <img src={t} alt={`Фото ${i + 1}`} className="w-full h-full object-contain" />
                   </div>
                 ))}
