@@ -321,7 +321,7 @@ export const Card = (): JSX.Element => {
             </button>
 
             {/* Catalog button */}
-            <button className="inline-flex h-10 items-center justify-center gap-[7px] px-[22px] ml-[18px] bg-[#3c3c50] rounded-[50px] transition-all hover:bg-[#2e2e40] active:scale-[0.98] cursor-pointer flex-shrink-0">
+            <button className="inline-flex h-10 items-center justify-center gap-[7px] px-[22px] ml-9 bg-[#3c3c50] rounded-[50px] transition-all hover:bg-[#2e2e40] active:scale-[0.98] cursor-pointer flex-shrink-0">
               <img className="w-3.5 h-3.5 flex-shrink-0 brightness-0 invert" alt="" src="/figmaAssets/bold---settings--fine-tuning---widget-3.svg" />
               <span className="[font-family:'Cera_Pro-Medium',Helvetica] font-medium text-white text-[11px] leading-[13px] tracking-[0.5px] whitespace-nowrap">
                 КАТАЛОГ
@@ -329,7 +329,7 @@ export const Card = (): JSX.Element => {
             </button>
 
             {/* Search bar */}
-            <div className="flex w-[372px] h-10 items-center justify-between pl-[27px] pr-[19px] ml-[26px] bg-[#3c3c501a] rounded-[30px] cursor-text transition-all hover:bg-[#3c3c5026] flex-shrink-0">
+            <div className="flex w-[372px] h-10 items-center justify-between pl-[27px] pr-[19px] ml-10 bg-[#3c3c501a] rounded-[30px] cursor-text transition-all hover:bg-[#3c3c5026] flex-shrink-0">
               <span className="[font-family:'Cera_Pro-Medium',Helvetica] font-medium text-[#3c3c5033] text-[10px] leading-[11.5px]">
                 СЫВОРОТКА ...
               </span>
@@ -337,7 +337,7 @@ export const Card = (): JSX.Element => {
             </div>
 
             {/* Filter tags */}
-            <div className="flex items-center gap-[7px] ml-[20px]">
+            <div className="flex items-center gap-[10px] ml-8">
               {["ПО НАЗНАЧЕНИЮ", "ТИП СРЕДСТВА", "АКТИВЫ"].map(tag => (
                 <button key={tag} className="inline-flex h-[21px] items-center justify-center px-[17px] bg-[#f8f8fc] rounded-[10px] cursor-pointer transition-all hover:bg-[#ebebf7] active:scale-[0.98]">
                   <span className="[font-family:'Cera_Pro-Medium',Helvetica] font-medium text-[#3c3c50] text-[10px] leading-[11.5px] whitespace-nowrap">
@@ -351,14 +351,14 @@ export const Card = (): JSX.Element => {
             <div className="flex-1" />
 
             {/* Wishlist */}
-            <button className="w-5 h-5 flex items-center justify-center transition-all hover:opacity-60 active:scale-90 flex-shrink-0" onClick={() => setWishlisted(!wishlisted)}>
-              <img className="w-5 h-5" alt="Wishlist" src="/figmaAssets/wishlist.svg" />
+            <button className="w-6 h-6 flex items-center justify-center transition-all hover:opacity-60 active:scale-90 flex-shrink-0" onClick={() => setWishlisted(!wishlisted)}>
+              <img className="w-6 h-6" alt="Wishlist" src="/figmaAssets/wishlist.svg" />
             </button>
 
             {/* Cart with badge */}
-            <button className="relative flex items-center cursor-pointer group flex-shrink-0 ml-[26px]">
-              <img className="w-5 h-5 transition-opacity group-hover:opacity-60" alt="Cart" src="/figmaAssets/shopping-bag-4.svg" />
-              <div className="absolute -top-2 -right-2 w-5 h-5 flex items-center justify-center bg-[#3c3c50] rounded-full">
+            <button className="relative flex items-center cursor-pointer group flex-shrink-0 ml-10">
+              <img className="w-6 h-6 transition-opacity group-hover:opacity-60" alt="Cart" src="/figmaAssets/shopping-bag-4.svg" />
+              <div className="absolute -top-1.5 -right-2 w-5 h-5 flex items-center justify-center bg-[#3c3c50] rounded-full">
                 <span className="[font-family:'Cera_Pro-Medium',Helvetica] font-medium text-white text-[9px] leading-none">20</span>
               </div>
             </button>
